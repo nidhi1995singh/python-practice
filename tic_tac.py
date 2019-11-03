@@ -1,23 +1,44 @@
-# for x in range(9,0,-1):
+last_atempt=''
+def print_board():
+	print(' '+board[6]+' | '+board[7]+' | '+board[8])
+	print('---------')
+	print(' '+board[3]+' | '+board[4]+' | '+board[5])
+	print('---------')
+	print(' '+board[0]+' | '+board[1]+' | '+board[2])
+board=['']*9
 
-# A basic code for matrix input from user 
-  
-R = int(input("Enter the number of rows:")) 
-C = int(input("Enter the number of columns:")) 
-  
-# Initialize matrix 
-matrix = [] 
-print("Enter the entries rowwise:") 
-  
-# For user input 
-for i in range(R):          # A for loop for row entries 
-    a =[] 
-    for j in range(C):      # A for loop for column entries 
-         a.append(int(input())) 
-    matrix.append(a) 
-  
-# For printing the matrix 
-for i in range(R): 
-    for j in range(C): 
-        print(matrix[i][j], end = " ") 
-    print() 
+def nxt_board():
+	print('\n'*1)
+
+print ('Welcome to Tic Tac Toe !')
+player1 = input('Player 1 : Do you want to be X or O ? ')
+while player1!='x' and player1!='X' and player1!='o' and player1!='O':
+	player1= input('PLayer 1 : Do you want to be X or O ? ')
+
+if player1=='x' or player1=='X':
+	player1='X'
+	player2='O'
+else:
+	player1='O'
+	player2='X'
+ 	
+print ('Player 1 will go first.')
+
+position= input('Enter the position where you want to place your '+player1+' ? ')
+board[position-1]=player1
+last_atempt=player1
+
+print_board()
+while board.count('')>0:
+	if last_atempt=='X':
+		position= input('Enter the position where you want to place your '+player2+' ? ')
+		board[position-1]=player2
+		last_atempt=player2
+	else:
+		position= input('Enter the position where you want to place your '+player1+' ? ')
+		board[position-1]=player1
+		last_atempt=player1
+	print_board()
+	nxt_board()
+else:
+	print ('Match Draw')
