@@ -1,3 +1,4 @@
+
 def display_board(board):
 	print(board[7]+'|'+board[8]+'|'+board[9])
 	print('-----')
