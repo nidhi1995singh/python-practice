@@ -8,7 +8,22 @@ def display_board(board):
 dboard = ['#',' ',' ',' ',' ',' ',' ',' ',' ',' ']
 
 def clear_output():
-	print('\n'*2)	
+	print('\n'*2)
+
+# ---------- match output ---------------------
+def match_pattern(board,player):
+	output = []
+
+	if(board[1] == board[2] == board[3] == 'X' or board[1] == board[2] == board[3] == 'O'):
+		# output[0] = '1'
+		# output[1] = 'O'
+		return player
+	else:
+		# output[0] = '0'
+		return False
+
+	# return output		
+# ---------- match output end---------------------
 
 player1 = input("Do you want to be 'X' or 'O'")
 
@@ -36,6 +51,8 @@ while dboard.count(' ')>0:
 		position= int(input('Enter the position where you want to place your '+player2+' ? '))
 		dboard[position]=player2
 		last_atempt=player2
+		result = match_pattern(dboard,player2)
+		print(result)
 	else:
 		position= int(input('Enter the position where you want to place your '+player1+' ? '))
 		dboard[position]=player1
@@ -53,13 +70,6 @@ else:
 # dboard[position] = player1
 # display_board(dboard)
 
-def match_pattern(board):
-	output = []
 
-	if(board[1] == board[2] == board[3] == 'X' or board[1] == board[2] == board[3] == 'O'):
-		output[0] = True
-		output[1] = 'O'
-
-	return output	
 
 
